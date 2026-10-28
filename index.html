@@ -4,16 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portafolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink: #f3ecdf;
-      --muted: #b7ad9e;
-      --bg: #161411;
-      --line: #3a342c;
-      --accent: #e7a15a;
+      --ink: #f3e8ee;
+      --muted: #cbb8c4;
+      --line: #e7dce4;
+      --paper: #423547;
+      --panel: #362c3a;
+      --soft: #2e42a0;
+      --orange: #fb8e56;
+      --coral: #f55259;
+      --lilac: #6966d0;
+      --blue: #2e42a0;
+      --violet: #6f3ab9;
+      --ink-dark: #2a1824;
     }
 
     * {
@@ -24,57 +28,269 @@
 
     body {
       min-height: 100vh;
-      display: grid;
-      place-items: center;
-      background:
-        radial-gradient(ellipse at top, #2a241c 0%, transparent 55%),
-        var(--bg);
+      background: var(--paper);
       color: var(--ink);
-      font-family: "Outfit", sans-serif;
+      font-family: "Segoe UI", sans-serif;
     }
 
-    main {
-      width: min(920px, calc(100% - 48px));
-      padding: 48px 0 64px;
-      border-top: 1px solid var(--line);
+    .page {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 64px;
     }
 
-    .kicker {
-      margin-bottom: 28px;
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.28em;
+    .label {
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 650;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
     }
 
-    h1 {
-      font-family: "Instrument Serif", serif;
-      font-size: clamp(4.2rem, 12vw, 8.5rem);
-      font-weight: 400;
-      line-height: 0.88;
-      letter-spacing: -0.03em;
+    section + section {
+      margin-top: 28px;
     }
 
-    h1 span {
-      display: block;
-      font-style: italic;
+    .socials {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
     }
 
-    .lead {
-      max-width: 34rem;
-      margin-top: 32px;
+    .social {
+      display: grid;
+      place-items: center;
+      min-height: 84px;
+      border: 1.5px dashed var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      font-size: 0.95rem;
+      text-decoration: none;
+    }
+
+    .game {
+      display: grid;
+      place-items: center;
+      min-height: 460px;
+      border: 1.5px solid var(--line);
+      background: var(--panel);
       color: var(--muted);
-      font-size: 1.15rem;
-      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .menu button {
+      min-height: 52px;
+      border: 1.5px solid var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      font: inherit;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .menu button + button {
+      border-left: 0;
+    }
+
+    .menu button[aria-selected="true"] {
+      background: var(--orange);
+      color: var(--ink-dark);
+    }
+
+    .panel {
+      min-height: 320px;
+      margin-top: -1.5px;
+      padding: 20px;
+      border: 1.5px solid var(--line);
+      background: var(--panel);
+    }
+
+    .panel h2 {
+      margin-bottom: 16px;
+      font-size: 1.05rem;
+      font-weight: 650;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .card,
+    .clip,
+    .row {
+      border: 1.5px dashed var(--line);
+      background: var(--soft);
+    }
+
+    .card {
+      display: grid;
+      place-items: end start;
+      aspect-ratio: 1;
+      padding: 12px;
+      font-size: 0.9rem;
+    }
+
+    .clips {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .clip {
+      display: grid;
+      place-items: center;
+      aspect-ratio: 16 / 9;
+      color: var(--muted);
+    }
+
+    .rows {
+      display: grid;
+      gap: 12px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 14px;
+      align-items: center;
+      min-height: 92px;
+      padding: 12px;
+      background: var(--panel);
+    }
+
+    .thumb {
+      height: 68px;
+      border: 1.5px dashed var(--line);
+      background: var(--soft);
+    }
+
+    .lines span {
+      display: block;
+      height: 10px;
+      margin-top: 8px;
+      background: var(--soft);
+    }
+
+    .lines span:first-child {
+      width: 42%;
+      margin-top: 0;
+      background: var(--lilac);
+    }
+
+    .social:nth-child(1) { background: var(--orange); color: var(--ink-dark); }
+    .social:nth-child(2) { background: var(--coral); color: var(--ink-dark); }
+    .social:nth-child(3) { background: var(--lilac); }
+    .social:nth-child(4) { background: var(--blue); }
+
+    .card:nth-child(1) { background: var(--blue); }
+    .card:nth-child(2) { background: var(--lilac); }
+    .card:nth-child(3) { background: var(--violet); }
+
+    .clip:nth-child(1) { background: var(--coral); color: var(--ink-dark); }
+    .clip:nth-child(2) { background: var(--orange); color: var(--ink-dark); }
+
+    .thumb { background: var(--violet); }
+
+    @media (max-width: 720px) {
+      .socials,
+      .cards,
+      .clips,
+      .menu {
+        grid-template-columns: 1fr;
+      }
+
+      .menu button + button {
+        border-top: 0;
+        border-left: 1.5px solid var(--line);
+      }
+
+      .game {
+        min-height: 280px;
+      }
     }
   </style>
 </head>
 <body>
-  <main>
-    <p class="kicker">Portafolio</p>
-    <h1>HELLO <span>WORLD</span></h1>
-    <p class="lead">Esta es la primera página del portafolio. A partir de aquí se irá construyendo el sitio.</p>
+  <main class="page">
+    <section aria-labelledby="redes-titulo">
+      <p class="label" id="redes-titulo">Redes sociales</p>
+      <div class="socials">
+        <a class="social" href="#">Red social</a>
+        <a class="social" href="#">Red social</a>
+        <a class="social" href="#">Red social</a>
+        <a class="social" href="#">Red social</a>
+      </div>
+    </section>
+
+    <section aria-labelledby="juego-titulo">
+      <p class="label" id="juego-titulo">Juego</p>
+      <div class="game">Espacio en blanco</div>
+    </section>
+
+    <section aria-labelledby="trabajo-titulo">
+      <p class="label" id="trabajo-titulo">Trabajo</p>
+      <div class="menu" role="tablist" aria-label="Tipo de trabajo">
+        <button type="button" role="tab" id="tab-3d" aria-controls="panel-3d" aria-selected="true" data-tab="3d">3D models</button>
+        <button type="button" role="tab" id="tab-vfx" aria-controls="panel-vfx" aria-selected="false" data-tab="vfx">VFX</button>
+        <button type="button" role="tab" id="tab-juegos" aria-controls="panel-juegos" aria-selected="false" data-tab="juegos">Videojuegos</button>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-3d" aria-labelledby="tab-3d" data-panel="3d">
+        <h2>3D models</h2>
+        <div class="cards">
+          <article class="card">Pieza 01</article>
+          <article class="card">Pieza 02</article>
+          <article class="card">Pieza 03</article>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-vfx" aria-labelledby="tab-vfx" data-panel="vfx" hidden>
+        <h2>VFX</h2>
+        <div class="clips">
+          <article class="clip">Clip 01</article>
+          <article class="clip">Clip 02</article>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-juegos" aria-labelledby="tab-juegos" data-panel="juegos" hidden>
+        <h2>Videojuegos</h2>
+        <div class="rows">
+          <article class="row">
+            <div class="thumb"></div>
+            <div class="lines"><span></span><span></span><span></span></div>
+          </article>
+          <article class="row">
+            <div class="thumb"></div>
+            <div class="lines"><span></span><span></span><span></span></div>
+          </article>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <script>
+    const tabs = document.querySelectorAll("[data-tab]");
+    const panels = document.querySelectorAll("[data-panel]");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const id = tab.dataset.tab;
+        tabs.forEach((item) => {
+          item.setAttribute("aria-selected", item === tab ? "true" : "false");
+        });
+        panels.forEach((panel) => {
+          panel.hidden = panel.dataset.panel !== id;
+        });
+      });
+    });
+  </script>
 </body>
 </html>
